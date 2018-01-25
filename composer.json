@@ -13,8 +13,8 @@
     "require": {
         "php": ">=7.0.0",
         "znframework/package-zerocore": "5.5.*",
-        "znframework/package-datatypes": "5.0.*",
-        "znframework/package-security": "5.0.*"
+        "znframework/package-datatypes": "5.5.*",
+        "znframework/package-security": "5.5.*"
 	},
     "autoload": {
         "psr-4": {
