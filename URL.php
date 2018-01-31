@@ -9,8 +9,6 @@
  * @author  Ozan UYKUN [ozan@znframework.com]
  */
 
-use ZN\In;
-use ZN\Lang;
 use ZN\Base;
 use ZN\Helper;
 use ZN\Request;
@@ -62,7 +60,7 @@ class URL implements URLInterface
      */
     public static function current(String $fix = NULL) : String
     {
-        $currentUrl = Request::host(Server::data('requestUri'));
+        $currentUrl = Request::getHostName(Server::data('requestUri'));
 
         if( ! empty($fix) )
         {
