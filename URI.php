@@ -304,7 +304,8 @@ class URI implements URIInterface
     public static function getByName(String $get, $index = NULL) : String
     {
         $segArr = self::segmentArray();
-        $getVal = array_search($get, $segArr);
+        
+        $getVal = (int) array_search($get, $segArr);
 
         if( $index === 'all' )
         {
@@ -315,7 +316,7 @@ class URI implements URIInterface
             $indexVal = array_search($index, $segArr);
         }
 
-        $return   = '';
+        $return = '';
 
         for( $i = $getVal; $i <= $indexVal; $i++ )
         {
