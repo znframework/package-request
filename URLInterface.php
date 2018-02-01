@@ -39,6 +39,15 @@ interface URLInterface
     public static function sites(String $uri = NULL) : String;
 
     /**
+     * Get host name
+     * 
+     * @param string $uri = NULL
+     * 
+     * @return string
+     */
+    public static function host(String $uri = NULL) : String;
+
+    /**
      * Get current URL
      * 
      * @param string $uri = NULL

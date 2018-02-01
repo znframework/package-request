@@ -48,7 +48,19 @@ class URL implements URLInterface
      */
     public static function sites(String $uri = NULL) : String
     {
-        return str_replace(SSL_STATUS, Http::fix(true), self::site($uri, $index));
+        return str_replace(SSL_STATUS, Http::fix(true), self::site($uri));
+    }
+
+    /**
+     * Get host name
+     * 
+     * @param string $uri = NULL
+     * 
+     * @return string
+     */
+    public static function host(String $uri = NULL) : String
+    {
+        return Request::getHostName($uri);
     }
 
     /**
