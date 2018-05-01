@@ -86,12 +86,12 @@ interface URIInterface
      * 
      * @return array
      */
-    public static function segmentArray() : Array;
+    public static function segmentArray() : array;
 
     /**
      * Get Total Segments
      * 
-     * @param int
+     * @return int
      */
     public static function totalSegments() : Int;
 
@@ -105,7 +105,7 @@ interface URIInterface
     /**
      * Get segment
      * 
-     * @param int $set = 1
+     * @param int $seg = 1
      * 
      * @return string
      */

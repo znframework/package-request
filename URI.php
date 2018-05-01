@@ -13,7 +13,6 @@ use ZN\In;
 use ZN\IS;
 use ZN\Lang;
 use ZN\Base;
-use ZN\Config;
 use ZN\Request;
 use ZN\Security;
 use ZN\DataTypes\Arrays;
@@ -37,7 +36,7 @@ class URI implements URIInterface
             $num = substr($method, 1);
             $val = $typ === 's' ? $num : -($num);
         
-            return self::segment($val, ...$parameters);
+            return self::segment($val);
         }
 
         return self::get($method, ...$parameters);
@@ -328,10 +327,10 @@ class URI implements URIInterface
 
     /**
      * Get Segment Array
-     * 
+     *
      * @return array
      */
-    public static function segmentArray() : Array
+    public static function segmentArray() : array
     {
         $segmentEx = Arrays\RemoveElement::element(explode('/', self::_cleanPath()), '');
 
@@ -340,8 +339,8 @@ class URI implements URIInterface
 
     /**
      * Get Total Segments
-     * 
-     * @param int
+     *
+     * @return Int
      */
     public static function totalSegments() : Int
     {
@@ -364,7 +363,7 @@ class URI implements URIInterface
     /**
      * Get segment
      * 
-     * @param int $set = 1
+     * @param int $seg = 1
      * 
      * @return string
      */
@@ -501,6 +500,11 @@ class URI implements URIInterface
 
     /**
      * Protected Add Fix
+     *
+     * @param string $query
+     * @param string $type
+     *
+     * @return String
      */
     protected static function _addFix($query, $type)
     {
