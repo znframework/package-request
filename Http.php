@@ -186,10 +186,10 @@ class Http implements HttpInterface
 
     /**
      * Request method type
-     * 
+     *
      * @param string ...$methods
-     * 
-     * @returm bool
+     *
+     * @return bool
      */
     public static function isRequestMethod(...$methods) : Bool
     {
@@ -198,8 +198,8 @@ class Http implements HttpInterface
 
     /**
      * Request is ajax
-     * 
-     * @param bool
+     *
+     * @return bool
      */
     public static function isAjax() : Bool
     {

@@ -86,10 +86,10 @@ class Method implements MethodInterface
 
     /**
      * Files
-     * 
-     * @param string $filename = NULL
+     *
+     * @param string $fileName = NULL
      * @param string $type     = 'name'
-     * 
+     *
      * @return mixed
      */
     public static function files(String $fileName = NULL, String $type = 'name')
@@ -117,6 +117,13 @@ class Method implements MethodInterface
 
     /**
      * Protected Method
+     *
+     * @param $name
+     * @param $value
+     * @param $input
+     * @param $type
+     *
+     * @return array|bool|string
      */
     protected static function _method($name, $value, $input, $type)
     {
@@ -125,7 +132,7 @@ class Method implements MethodInterface
             return $input;
         }
 
-        # @value parametresi boş değilse 5.4.7[edited]
+        # if @value parameter not null 5.4.7[edited]
         if( $value !== NULL )
         {
             switch( $type )

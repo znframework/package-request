@@ -50,7 +50,7 @@ interface URLInterface
     /**
      * Get current URL
      * 
-     * @param string $uri = NULL
+     * @param string $fix = NULL
      * 
      * @return string
      */
