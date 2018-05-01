@@ -58,10 +58,12 @@ interface URLInterface
 
     /**
      * Get prev URL
-     * 
+     *
+     * @param string $default
+     *
      * @return string
      */
-    public static function prev() : String;
+    public static function prev(string $default = '') : String;
 
     /**
      * Build Query

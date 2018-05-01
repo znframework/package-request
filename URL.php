@@ -84,12 +84,14 @@ class URL implements URLInterface
 
     /**
      * Get prev URL
-     * 
+     *
+     * @param string $default
+     *
      * @return string
      */
-    public static function prev() : String
+    public static function prev(string $default = '') : String
     {
-        return $_SERVER['HTTP_REFERER'] ?? '';
+        return $_SERVER['HTTP_REFERER'] ?? $default;
     }
 
     /**
