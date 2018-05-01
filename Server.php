@@ -32,9 +32,9 @@ class Server
     /**
      * OS
      *
-     * @return String
+     * @return string
      */
-    public static function os() : String
+    public static function os() : string
     {
         if( stristr(PHP_OS, 'WIN') )
         {
@@ -67,7 +67,7 @@ class Server
      *
      * @return mixed
      */
-    public static function data(String $type = NULL)
+    public static function data(string $type = NULL)
     {
         $server =
         [
@@ -127,10 +127,8 @@ class Server
             {
                 return $server[$type];
             }
-            else
-            {
-                $return = htmlspecialchars($server[$type], ENT_QUOTES, "utf-8");
-            }
+
+            $return = htmlspecialchars($server[$type], ENT_QUOTES, "utf-8");
         }
         elseif( isset($_SERVER[$type]) )
         {
@@ -146,7 +144,7 @@ class Server
      *
      * @return string
      */
-    public static function name() : String
+    public static function name() : string
     {
         return self::data('name');
     }
@@ -156,7 +154,7 @@ class Server
      *
      * @return string
      */
-    public static function addr() : String
+    public static function addr() : string
     {
         return self::data('addr');
     }
@@ -166,7 +164,7 @@ class Server
      *
      * @return int
      */
-    public static function port() : Int
+    public static function port() : int
     {
         return self::data('port');
     }
@@ -176,7 +174,7 @@ class Server
      *
      * @return string
      */
-    public static function admin() : String
+    public static function admin() : string
     {
         return self::data('admin');
     }
@@ -186,7 +184,7 @@ class Server
      *
      * @return string
      */
-    public static function protocol() : String
+    public static function protocol() : string
     {
         return self::data('protocol');
     }
