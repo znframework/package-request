@@ -1,24 +1,22 @@
 <?php namespace ZN\Request;
 /**
  * ZN PHP Web Framework
- * 
+ *
  * "Simplicity is the ultimate sophistication." ~ Da Vinci
- * 
+ *
  * @package ZN
  * @license MIT [http://opensource.org/licenses/MIT]
  * @author  Ozan UYKUN [ozan@znframework.com]
  */
 
-use ZN\Base;
-
 class Server
 {
     /**
      * Magic Call Static
-     * 
+     *
      * @param string $method
      * @param array  $parameters
-     * 
+     *
      * @return mixed
      */
     public static function __callStatic($method, $parameters)
@@ -33,8 +31,8 @@ class Server
 
     /**
      * OS
-     * 
-     * @param string
+     *
+     * @return String
      */
     public static function os() : String
     {
@@ -62,11 +60,11 @@ class Server
 
     /**
      * server
-     * 
+     *
      * The compiled version of the $_SERVER global variable.
-     * 
+     *
      * @param string $type
-     * 
+     *
      * @return mixed
      */
     public static function data(String $type = NULL)
@@ -145,7 +143,7 @@ class Server
 
     /**
      * Name
-     * 
+     *
      * @return string
      */
     public static function name() : String
@@ -155,7 +153,7 @@ class Server
 
     /**
      * Addr
-     * 
+     *
      * @return string
      */
     public static function addr() : String
@@ -165,7 +163,7 @@ class Server
 
     /**
      * Port
-     * 
+     *
      * @return int
      */
     public static function port() : Int
@@ -175,7 +173,7 @@ class Server
 
     /**
      * Admin
-     * 
+     *
      * @return string
      */
     public static function admin() : String
@@ -185,7 +183,7 @@ class Server
 
     /**
      * Protocol
-     * 
+     *
      * @return string
      */
     public static function protocol() : String
