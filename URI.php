@@ -121,79 +121,72 @@ class URI implements URIInterface
             $while = false;
         }
 
-        $segArr = self::segmentArray();
-        $segVal = '';
-
         if( is_numeric($get) )
         {
             return self::getByIndex($get, $index);
         }
 
+        $segArr = self::segmentArray();
+
         if( in_array($get, $segArr) )
-        {
-            $segVal = array_search($get, $segArr);
-
-            # 3. parameter is not empty
-            # 2. The non-numerical state of the parameter
-            if( ! empty($while) && ! is_numeric($index) )
-            {
-                return self::getByName($get, $index);
-            }
-
-            # 2. the parameter is all-in
-            # It gives all segments from parameter 1.
-            if( $index === 'all' )
-            {
-                return self::getNameAll($get);
-            }
-
-             # 3. parameter is not empty
-            if( ! empty($while) )
-            {
-                $return = '';
-
-                $countSegArr = count($segArr) - 1;
-
-                if( $index > $countSegArr )
-                {
-                    $index = $countSegArr;
-                }
-
-                if( $index < 0 )
-                {
-                    $index = $countSegArr + $index + 1;
-                }
-
-                for( $i = 1; $i <= $index; $i++ )
-                {
-                    $return .= $segArr[$segVal + $i]."/";
-                }
-
-                $return = substr($return,0,-1);
-
-                return $return;
-            }
-
-            # 2. the parameter is all-in
-            # It gives all segments from parameter 1.
-            if( $index === "count" )
-            {
-                return self::getNameCount($get);
-            }
-
-            if( isset($segArr[$segVal + $index]) )
-            {
-                return $segArr[$segVal + $index];
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
         {
             return false;
         }
+
+        # 3. parameter is not empty
+        # 2. The non-numerical state of the parameter
+        if( ! empty($while) && ! is_numeric($index) )
+        {
+            return self::getByName($get, $index);
+        }
+
+        # 2. the parameter is all-in
+        # It gives all segments from parameter 1.
+        if( $index === 'all' )
+        {
+            return self::getNameAll($get);
+        }
+
+        $segVal = array_search($get, $segArr);
+
+        # 3. parameter is not empty
+        if( ! empty($while) )
+        {
+            $countSegArr = count($segArr) - 1;
+
+            if( $index > $countSegArr )
+            {
+                $index = $countSegArr;
+            }
+
+            if( $index < 0 )
+            {
+                $index = $countSegArr + $index + 1;
+            }
+
+            $return = '';
+
+            for( $i = 1; $i <= $index; $i++ )
+            {
+                $return .= $segArr[$segVal + $i].'/';
+            }
+
+            return substr($return,0,-1);
+        }
+
+        # 2. the parameter is all-in
+        # It gives all segments from parameter 1.
+        if( $index === 'count' )
+        {
+            return self::getNameCount($get);
+        }
+
+        if( isset($segArr[$segVal + $index]) )
+        {
+            return $segArr[$segVal + $index];
+        }
+
+        return false;
     }
 
     /**
@@ -236,7 +229,7 @@ class URI implements URIInterface
 
             for( $i = 1; $i < count($segArr) - $segVal; $i++ )
             {
-                $return .= $segArr[$segVal + $i]."/";
+                $return .= $segArr[$segVal + $i].'/';
             }
 
             $return = substr($return, 0, -1);
@@ -319,7 +312,7 @@ class URI implements URIInterface
 
         for( $i = $getVal; $i <= $indexVal; $i++ )
         {
-            $return .= $segArr[$i]."/";
+            $return .= $segArr[$i].'/';
         }
 
         return substr($return, 0, -1);
@@ -344,7 +337,7 @@ class URI implements URIInterface
      */
     public static function totalSegments() : Int
     {
-        $segmentEx     = array_diff(self::segmentArray(), ["", " "]);
+        $segmentEx     = array_diff(self::segmentArray(), ['', ' ']);
         $totalSegments = count($segmentEx);
 
         return $totalSegments;
