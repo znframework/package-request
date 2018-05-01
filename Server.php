@@ -40,22 +40,23 @@ class Server
         {
             return 'WIN';
         }
-        elseif( stristr(PHP_OS, 'MAC') )
+
+        if( stristr(PHP_OS, 'MAC') )
         {
             return 'MAC';
         }
-        elseif( stristr(PHP_OS, 'LINUX') )
+
+        if( stristr(PHP_OS, 'LINUX') )
         {
             return 'LINUX';
         }
-        elseif( stristr(PHP_OS, 'UNIX') )
+
+        if( stristr(PHP_OS, 'UNIX') )
         {
             return 'UNIX';
         }
-        else
-        {
-            return 'UNKNOWN';
-        }
+
+        return 'UNKNOWN';
     }
 
     /**
