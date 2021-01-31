@@ -271,7 +271,7 @@ class URI implements URIInterface
 
         if( $index < 0 )
         {
-            $index = $countSegArr + $index + 1;
+            $index = $countSegArr + $index;
         }
 
         if( $index > 0 )
