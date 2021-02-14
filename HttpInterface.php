@@ -94,13 +94,6 @@ interface HttpInterface
     public static function isAjax() : Bool;
 
     /**
-     * Request CURL
-     * 
-     * @return bool
-     */
-    public static function isCurl() : Bool;
-
-    /**
      * Get Browser Lang
      * 
      * @param string $default = 'en'
