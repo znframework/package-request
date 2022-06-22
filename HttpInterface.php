@@ -92,7 +92,7 @@ interface HttpInterface
      * @param bool
      */
     public static function isAjax() : bool;
-
+    
     /**
      * Get Browser Lang
      * 
